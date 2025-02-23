@@ -4,11 +4,15 @@ from PIL import Image
 import numpy as np
 import tensorflow as tf
 import plotly.express as px
+import gdown
 
 @st.cache_resource
 def carrega_modelo():
-    modelo = '/workspaces/classificador_videiras/modelo/modelo_quantizado16bits.tflite'
-    interpreter = tf.lite.Interpreter(model_path=modelo)
+
+    #https://drive.google.com/file/d/14u1k-6qte4N_mpbIsjTJqVa0YVsLJZo8/view?usp=drive_link
+    url='https://drive.google.com/file/d/14u1k-6qte4N_mpbIsjTJqVa0YVsLJZo8'
+    gdown.download(url, 'modelo_quantizado16bits.tflite')
+    interpreter = tf.lite.Interpreter(model_path='modelo_quantizado16bits.tflite')
     interpreter.allocate_tensors()
     return interpreter
 
