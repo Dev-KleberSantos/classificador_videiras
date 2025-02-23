@@ -1,10 +1,12 @@
 import streamlit as st
-import io
 from PIL import Image
 import numpy as np
 import tensorflow as tf
-import plotly.express as px
+import pandas as pd
+import io
 import gdown
+import plotly.express as px
+
 
 @st.cache_resource
 def carrega_modelo():
